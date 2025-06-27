@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insecure Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8d7da; color: #721c24; margin: 0; padding: 0; }
+        header { background: #721c24; color: #fff; padding: 20px; text-align: center; }
+        main { padding: 40px; }
+        .warning { background: #f5c6cb; border: 1px solid #f1b0b7; padding: 20px; margin-bottom: 30px; border-radius: 8px; }
+        .data { background: #fff3cd; border: 1px solid #ffeeba; padding: 20px; border-radius: 8px; }
+        footer { background: #721c24; color: #fff; text-align: center; padding: 10px; position: fixed; width: 100%; bottom: 0; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Insecure Demo Landing Page</h1>
+        <p>This page intentionally demonstrates insecure web practices.</p>
+    </header>
+    <main>
+        <div class="warning">
+            <strong>Warning:</strong> This page loads insecure content and uses unsafe scripts. Browsers may block some features.
+        </div>
+        <form onsubmit="submitForm(event)">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login (Insecure)</button>
+        </form>
+        <div class="data" id="external-data">
+            <strong>External Data:</strong>
+            <pre id="data-output">Loading...</pre>
+        </div>
+        <img src="http://placekitten.com/200/300" alt="Insecure Kitten" style="margin-top:20px; border:2px solid #721c24;">
+    </main>
+    <footer>
+        &copy; 2025 Insecure Demo. For testing only.
+    </footer>
+    <script>
+        // Insecure fetch from HTTP (should be blocked on HTTPS)
+        fetch('http://insecure.example.com/data')
+            .then(response => response.text())
+            .then(data => document.getElementById('data-output').textContent = data)
+            .catch(error => document.getElementById('data-output').textContent = 'Error: ' + error);
+
+        // Insecure form submission (no HTTPS, no validation, sends credentials via HTTP)
+        function submitForm(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            // Simulate sending credentials over HTTP (insecure)
+            fetch('http://insecure.example.com/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert('Insecure login submitted! Username: ' + username + ', Password: ' + password + '\nServer response: ' + data);
+            })
+            .catch(error => {
+                alert('Error sending credentials: ' + error);
+            });
+        }
+
+        // Insecure: dynamically injects a script from an HTTP source
+        const script = document.createElement('script');
+        script.src = 'http://insecure.example.com/evil.js';
+        script.onload = function() {
+            console.log('Insecure external script loaded.');
+        };
+        script.onerror = function() {
+            console.warn('Failed to load insecure external script.');
+        };
+        document.body.appendChild(script);
+    </script>
+</body>
+</html>

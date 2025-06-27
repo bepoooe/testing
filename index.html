@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Landing Page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #222; margin: 0; padding: 0; }
+        .container { max-width: 500px; margin: 100px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 40px 32px; text-align: center; }
+        h1 { margin-bottom: 32px; }
+        button { font-size: 1.1em; padding: 16px 32px; margin: 16px 12px; border: none; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
+        .safe { background: #1976d2; color: #fff; }
+        .safe:hover { background: #1565c0; }
+        .unsafe { background: #d32f2f; color: #fff; }
+        .unsafe:hover { background: #b71c1c; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose a Privacy Page</h1>
+        <button class="safe" onclick="location.href='privacy1.html'">privacy1.html (Safe)</button>
+        <button class="unsafe" onclick="location.href='privacy2.html'">privacy2.html (Unsafe)</button>
+    </div>
+</body>
+</html>
