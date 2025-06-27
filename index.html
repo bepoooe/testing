@@ -1,25 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Landing Page</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Website</title>
     <style>
-        body { font-family: 'Segoe UI', Arial, sans-serif; background: #f5f5f5; color: #222; margin: 0; padding: 0; }
-        .container { max-width: 500px; margin: 100px auto; background: #fff; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); padding: 40px 32px; text-align: center; }
-        h1 { margin-bottom: 32px; }
-        button { font-size: 1.1em; padding: 16px 32px; margin: 16px 12px; border: none; border-radius: 6px; cursor: pointer; transition: background 0.2s; }
-        .safe { background: #1976d2; color: #fff; }
-        .safe:hover { background: #1565c0; }
-        .unsafe { background: #d32f2f; color: #fff; }
-        .unsafe:hover { background: #b71c1c; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+        header { background: #f8f8f8; padding: 20px; text-align: center; }
+        nav { margin: 20px 0; }
+        nav a { margin-right: 15px; text-decoration: none; color: #0066cc; }
+        .content { max-width: 800px; margin: 0 auto; }
+        footer { margin-top: 20px; padding: 20px; background: #f8f8f8; }
+        footer a { margin-right: 15px; color: #0066cc; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Choose a Privacy Page</h1>
-        <button class="safe" onclick="location.href='term.html'">term.html (Safe)</button>
-        <button class="unsafe" onclick="location.href='privacy.html'">privacy.html (Unsafe)</button>
+    <header>
+        <h1>Welcome to Demo Website</h1>
+    </header>
+    <nav>
+        <a href="/about">About Us</a>
+        <a href="/services">Services</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/contact">Contact</a>
+    </nav>
+    <div class="content">
+        <h2>Home</h2>
+        <p>Welcome to our demo website! Explore our services and learn more about our commitment to your privacy.</p>
     </div>
+    <footer>
+        <div class="footer-links">
+            <a href="/privacy-policy" class="privacy-link">Privacy Policy</a>
+            <a href="/terms">Terms</a>
+            <a href="/sitemap.xml">Sitemap</a>
+            <a href="/robots.txt">Robots</a>
+        </div>
+    </footer>
 </body>
 </html>
